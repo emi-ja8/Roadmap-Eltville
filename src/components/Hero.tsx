@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { places } from "@/data/places";
 import { categoryConfig } from "@/data/categories";
+import { assetPath } from "@/lib/site";
 
 export function Hero() {
   const verifiedPlaces = places.filter((place) => place.status === "verified").length;
@@ -21,7 +22,7 @@ export function Hero() {
       <div className="hero__art" aria-label="Illustration aus den Projektunterlagen" role="img">
         <div className="hero__sun" />
         <div className="hero__badge">Kinderfreundliche<br /><strong>Orte entdecken</strong></div>
-        <img src="/assets/roadmap-cover.png" alt="Illustrative Roadmap mit Kindern, Natur und Eltville am Rhein" />
+        <img src={assetPath("/assets/roadmap-cover.png")} alt="Illustrative Roadmap mit Kindern, Natur und Eltville am Rhein" />
       </div>
     </section>
   );

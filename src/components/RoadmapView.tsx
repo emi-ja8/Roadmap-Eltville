@@ -2,6 +2,7 @@ import { getCategory } from "@/data/categories";
 import type { Place } from "@/types/place";
 import { Icon } from "@/components/Icon";
 import Link from "next/link";
+import { assetPath } from "@/lib/site";
 
 export function RoadmapView({ places, selectedSlug, onSelect }: { places: Place[]; selectedSlug: string | null; onSelect: (slug: string) => void }) {
   // The revised project roadmap is the visual source of truth for marker placement.
@@ -13,7 +14,7 @@ export function RoadmapView({ places, selectedSlug, onSelect }: { places: Place[
     <div className="roadmap-frame">
       <div className="roadmap-toolbar"><span className="map-status"><span className="live-dot" /> Interaktive Roadmap <span className="map-status__muted">Eltville am Rhein</span></span><span className="map-scale">{mapPlaces.length} klickbare Orte · Stand 13.07.2026</span></div>
       <div className="roadmap-canvas" role="group" aria-label="Interaktive Roadmap mit den Orten in Eltville">
-        <img src="/assets/eltville-base-map.png" alt="Stadtkarte von Eltville am Rhein mit Straßen, Stadtteilen und Rheinverlauf" />
+        <img src={assetPath("/assets/eltville-base-map.png")} alt="Stadtkarte von Eltville am Rhein mit Straßen, Stadtteilen und Rheinverlauf" />
         <div className="map-hint"><span className="live-dot" /> Marker auswählen</div>
         {mapPlaces.map((place) => {
           const category = getCategory(place.category);
